@@ -1,0 +1,6 @@
+data_electric = read.csv("household_power_consumption.csv")
+data_electric$Date = as.Date(x = data_electric$Date)
+data_sub$DateTime = strptime(paste(data_sub$Date,data_sub$Time),format = "%Y-%m-%d %H:%M:%S")
+with(data = data_sub,plot(x=DateTime,y =Global_active_power,main ="",xlab="",ylab = "Global Active Power (Kilowatts)",type = "l"))
+dev.copy(png,"Plot2.png")
+dev.off()

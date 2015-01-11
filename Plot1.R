@@ -1,0 +1,7 @@
+data_electric = read.csv("household_power_consumption.csv")
+data_electric$Date = as.Date(x = data_electric$Date)
+data_electric$Global_active_power = as.numeric(x = as.character(data_electric$Global_active_power))
+data_sub = subset(x = data_electric, Date >= as.Date("2007-02-01")& Date <= as.Date("2007-02-02"))
+with(data = data_sub,hist(x =Global_active_power,main ="Global Active Power",col = "red",xlab = "Global Active Power (Kilowatts) "))
+dev.copy(device = png, file = "Plot1.png")
+dev.off()
